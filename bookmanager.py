@@ -14,8 +14,11 @@ db = SQLAlchemy(app)
 
 class Book(db.Model):
     title = db.Column(db.String(80), unique=True, nullable=False, primary_key=True)
+    # author_name = db.Column(db.String(80), nullable=False, primary_key=True)
 
-    def __repr__(self):
+    def __repr__(self, title, author_name):
+        # self.title = title
+        # self.author_name = author_name
         return "<Title: {}>".format(self.title)
 
 @app.route('/', methods = ['GET', 'POST'])
